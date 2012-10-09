@@ -1,7 +1,10 @@
-# ECLIPSE
+# eclipse IDE
 .classpath
 .project
 .settings/
 
-# DIVERS
+# intellij IDE
+*.iml
+
+# divers
 target/
