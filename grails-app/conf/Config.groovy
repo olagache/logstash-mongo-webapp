@@ -69,6 +69,9 @@ environments {
     }
 }
 
+// Change application context to ROOT
+grails.app.context = "/"
+
 // log4j configuration
 log4j = {
     // Example of changing the log pattern for the default console appender:
