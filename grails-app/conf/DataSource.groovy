@@ -5,8 +5,8 @@ environments {
     development {
         grails {
             mongo {
-                host = "localhost"
-                port = 27017
+                host = "rtl-jback2.web.groupertl.net"
+                port = 27120
                 databaseName = "logs"
             }
         }

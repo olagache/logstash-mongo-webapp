@@ -3,6 +3,7 @@ package com.github.olagache.mongoweblog
 import org.bson.types.ObjectId
 
 class ApplicationLog {
+
     static mapWith = "mongo"
 
     static constraints = {
@@ -12,6 +13,7 @@ class ApplicationLog {
         collection "applications"
 
         source attr: "@source"
+        type attr: "@type"
         tags attr: "@tags"
         fields attr: "@fields"
         timestamps attr: "@timestamp"
@@ -23,6 +25,8 @@ class ApplicationLog {
     ObjectId id
 
     String source
+
+    String type;
 
     List<String> tags
 
