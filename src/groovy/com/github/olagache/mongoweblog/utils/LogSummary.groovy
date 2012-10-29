@@ -9,8 +9,7 @@ class LogSummary {
     /** log count in this logger */
     public long count
 
-    public Date startDate
-    public Date endDate
-
+    public String startDate
+    public String endDate
 
 }
