@@ -1,12 +1,11 @@
 package com.github.olagache.mongoweblog.utils;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class LogSummaryTest {
 
@@ -32,10 +31,10 @@ public class LogSummaryTest {
 
 
     /**
-     * @return  2012-10-30T12:15:23.192Z as date
+     * @return 2012-10-30T12:15:23.192Z as date
      */
     private Date getTestingDate() {
-        GregorianCalendar testingDate = new GregorianCalendar(2012,(10-1),30,12,15,23);
+        GregorianCalendar testingDate = new GregorianCalendar(2012, (10 - 1), 30, 12, 15, 23);
 
         testingDate.add(Calendar.MILLISECOND, 192);
 
