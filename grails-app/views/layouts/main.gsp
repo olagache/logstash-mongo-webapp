@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                     </a>
 
-                    <g:link class="brand" action="index">Log Viewer</g:link>
+                    <g:link class="brand" controller="index">Log Viewer</g:link>
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
