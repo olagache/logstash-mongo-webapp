@@ -2,11 +2,11 @@ package com.github.olagache.mongoweblog.utils
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import org.apache.commons.lang.StringUtils
 
 class LogSummary {
 
     private static String DATE_FORMAT_1 = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";    // 2012-10-30T12:15:23.192Z
-    private static String DATE_FORMAT_2 = "yyyy-MM-dd'T'HH:mm:ss.SSS'000Z'"; // 2012-10-30T12:15:23.192000Z
 
     /** Application names list contains in this logger */
     public List<String> applicationNames
@@ -47,16 +47,20 @@ class LogSummary {
         Date parsingDate = null;
 
         try {
-            parsingDate = new SimpleDateFormat(DATE_FORMAT_2).parse(dateAsString)
+            parsingDate = new SimpleDateFormat(DATE_FORMAT_1).parse(normalize(dateAsString))
         }
         catch (ParseException e1) {
-            try {
-                parsingDate = new SimpleDateFormat(DATE_FORMAT_1).parse(dateAsString);
-            }
-            catch (ParseException e2) {
                 return null;
             }
-        }
         return parsingDate;
+    }
+
+    private String normalize(String dateAsString) {
+        String millis = StringUtils.substringAfterLast(dateAsString,".");
+        if(millis.length() > 4 && millis.endsWith("000Z")) {
+            String normalizedDate = StringUtils.replace(dateAsString, "000Z", "Z");
+            return normalizedDate;
+        }
+        return dateAsString;
     }
 }
