@@ -6,26 +6,28 @@ class LogSummaryService {
 
     def mongo;
 
-    def getLogApplicationSummary() {
-        getLogSummary("applications")
+    def getLogApplicationSummary(boolean withApplicationName) {
+        getLogSummary("applications", withApplicationName)
     }
 
-    def getLogAccessSummary() {
-        getLogSummary("access")
+    def getLogAccessSummary(boolean withApplicationName) {
+        getLogSummary("access", withApplicationName)
     }
 
-    def getLogCatalinaSummary() {
-        getLogSummary("catalina")
+    def getLogCatalinaSummary(boolean withApplicationName) {
+        getLogSummary("catalina", withApplicationName)
     }
 
 
-    def getLogSummary(String collectionName) {
+    def getLogSummary(String collectionName, boolean withApplicationName) {
         def db = mongo.getDB("logs");
 
         LogSummary logSummary = new LogSummary();
 
+        if(withApplicationName) {
+            logSummary.applicationNames = db[collectionName].distinct("@fields.applicationName")
+        }
 
-        logSummary.applicationNames = db[collectionName].distinct("@fields.applicationName")
         logSummary.count = db[collectionName].find().count();
 
         BasicDBObject returnField = new BasicDBObject()

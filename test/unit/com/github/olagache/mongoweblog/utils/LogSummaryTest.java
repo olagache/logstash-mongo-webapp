@@ -30,15 +30,6 @@ public class LogSummaryTest {
         Assert.assertEquals(getTestingDate(), logSummary.getStartDate());
     }
 
-/*
-    @Test
-    public void just4testing() {
-        String DATE_FORMAT_1 = "yyyy-MM-dd'T'HH:mm:ss.SSS'000Z'";
-
-        System.out.println(new SimpleDateFormat(DATE_FORMAT_1).format(new Date()));
-
-    }
-*/
 
     /**
      * @return  2012-10-30T12:15:23.192Z as date
