@@ -42,7 +42,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="#">Access Log</a></li>
-                            <li><a href="#">Application Log</a></li>
+                            <li><g:link controller="application">Application Log</g:link></li>
                             <li><a href="#">Catalina Log</a></li>
                         </ul>
                     </div>
