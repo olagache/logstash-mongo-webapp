@@ -33,11 +33,11 @@
             <g:each var="item" in="${page.items}">
                 <tr>
                     <g:set var="fields" value="${item['@fields']}" />
-                    <td>${item.get("@timestamp")}</td>
-                    <td>${fields["applicationName"][0]}</td>
-                    <td>${fields["loglevel"][0]}</td>
-                    <td>${fields["classname"][0]}</td>
-                    <td>${fields["text"][0]}</td>
+                    <td style="white-space: nowrap" ><small>${item.get("@timestamp")}</small> </td>
+                    <td><small>${fields?.applicationName[0]}</small></td>
+                    <td><small>${fields?.loglevel[0]}</small></td>
+                    <td><small>${fields?.classname[0]}</small></td>
+                    <td><small>${fields?.text}</small></td>
                 </tr>
             </g:each>
         </tbody>
