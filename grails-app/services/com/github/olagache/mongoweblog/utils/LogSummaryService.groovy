@@ -2,7 +2,7 @@ package com.github.olagache.mongoweblog.utils
 
 import com.mongodb.BasicDBObject
 
-class LogSummaryService {
+public class LogSummaryService {
 
     def mongo;
 
@@ -30,14 +30,10 @@ class LogSummaryService {
 
         logSummary.count = db[collectionName].find().count();
 
-//        BasicDBObject returnField = new BasicDBObject()
-//        returnField.put("@timestamp", 1)
-
         logSummary.setStartDate(db[collectionName].find([] as BasicDBObject, ["@timestamp":1] as BasicDBObject).limit(1).sort("@timestamp" : 1).next().get("@timestamp"))
         logSummary.setEndDate  (db[collectionName].find([] as BasicDBObject, ["@timestamp":1] as BasicDBObject).limit(1).sort("@timestamp" : -1).next().get("@timestamp"))
 
 
         return logSummary;
-
     }
 }
