@@ -10,7 +10,7 @@
     <form class="form-inline">
         <fieldset>
             <g:select name="application" from="${weblog.applications(collection: 'applications')}" />
-            <g:select name="level" from="${weblog.loglevels(collection: 'applications')}" />
+            <g:select name="level" from="${weblog.loglevels()}" />
             <button type="submit" class="btn btn-primary">Go!</button>
         </fieldset>
     </form>
