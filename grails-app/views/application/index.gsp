@@ -15,6 +15,10 @@
         </fieldset>
     </form>
 
+    <div>
+
+    </div>
+
     <table class="table table-condensed ">
         <thead>
             <tr>
@@ -25,6 +29,18 @@
                 <th>Message</th>
             </tr>
         </thead>
+        <tbody>
+            <g:each var="item" in="${page.items}">
+                <tr>
+                    <g:set var="fields" value="${item['@fields']}" />
+                    <td>${item.get("@timestamp")}</td>
+                    <td>${fields["applicationName"][0]}</td>
+                    <td>${fields["loglevel"][0]}</td>
+                    <td>${fields["classname"][0]}</td>
+                    <td>${fields["text"][0]}</td>
+                </tr>
+            </g:each>
+        </tbody>
     </table>
 </body>
 </html>
