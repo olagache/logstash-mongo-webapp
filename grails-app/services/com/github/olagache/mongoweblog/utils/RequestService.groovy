@@ -35,11 +35,11 @@ class RequestService {
             cursor = collection.find()
         }
         else {
-            cursor.find(queryObject)
+            cursor = collection.find(queryObject)
         }
 
         if(query.index != 0) {
-            cursor.skip(query.index * query.size)
+            cursor.skip(query.start)
         }
         cursor.limit(query.size)
         cursor.sort("@timestamp" : -1)

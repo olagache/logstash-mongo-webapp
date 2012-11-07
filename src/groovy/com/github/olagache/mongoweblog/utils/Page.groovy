@@ -27,17 +27,25 @@ public class Page<E> {
     }
 
     public int getPageCount() {
-        if(getTotalCount() <= 0) {
+        if(totalCount <= 0) {
             return 1
         }
 
-        int pageCount = totalCount / query.getSize()
+        int pageCount = totalCount / query.size
 
-        if(pageCount * query.getSize() != pageCount) {
+        if(pageCount * query.size != pageCount) {
             pageCount += 1
         }
 
+        if(pageCount == 0) {
+            pageCount = 1
+        }
+
         return pageCount
+    }
+
+    public Query getQuery() {
+        return query
     }
 
     public List<E> getItems() {

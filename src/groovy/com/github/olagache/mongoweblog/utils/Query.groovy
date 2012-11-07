@@ -68,7 +68,7 @@ public class Query {
     }
 
     public int getEnd() {
-        return getStart() + size
+        return start + size
     }
 
     /* ------- */
@@ -84,5 +84,7 @@ public class Query {
         query.applicationName = applicationName
         query.logLevel = logLevel
         query.responseCode = responseCode
+
+        return query
     }
 }
