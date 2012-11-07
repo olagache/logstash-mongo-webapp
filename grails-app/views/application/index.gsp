@@ -64,7 +64,7 @@
                     </td>
                     <td>
                         <g:if test="${fields.text}">
-                            <small>${fields.text[0]}</small>
+                            <small>${fields.text[0]}. <a href="#" class="btn btn-info btn-mini pull-right">details</a></small>
                         </g:if>
                     </td>
                 </tr>
