@@ -23,7 +23,7 @@
     </div>
 
     <div class="row">
-        <div class="span8 offset2">
+        <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
                         params="[application : page?.query?.applicationName, level : page?.query?.logLevel]"
                         action="index"/>
@@ -73,7 +73,7 @@
     </table>
 
     <div class="row">
-        <div class="span8 offset2">
+        <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
                         params="[application : page?.query?.applicationName, level : page?.query?.logLevel]"
                         action="index"/>
