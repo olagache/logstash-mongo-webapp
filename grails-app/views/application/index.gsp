@@ -64,12 +64,7 @@
                     </td>
                     <td>
                         <g:if test="${fields.text}">
-                            <small>${fields.text[0]}.
-                                <g:link controller="logDetails"
-                                        params="[collectionName : page.query.mongoCollection, id : item['_id']]"
-                                        class="btn btn-info btn-mini pull-right">
-                                    details
-                                </g:link>
+                            <small>${fields.text[0]}. <g:link controller="logDetails" params="[collectionName : page.query.mongoCollection, id : item['_id']]" class="btn btn-info btn-mini pull-right" rel="external">details</g:link>
                             </small>
                         </g:if>
                     </td>
