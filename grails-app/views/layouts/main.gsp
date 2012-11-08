@@ -22,7 +22,7 @@
         }
         </style>
 
-    <r:require module="bootstrap"/>
+        <r:require module="bootstrap"/>
         <r:require module="jquery"/>
 		<r:layoutResources />
 	</head>
@@ -56,7 +56,7 @@
         </div>
 
 
-    <g:javascript library="application"/>
+        <g:javascript library="application"/>
 		<r:layoutResources />
 	</body>
 </html>

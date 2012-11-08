@@ -5,6 +5,7 @@ import com.mongodb.DBObject
 import com.mongodb.BasicDBObject
 import org.apache.commons.lang.StringUtils
 import com.mongodb.DBCursor
+import org.bson.types.ObjectId
 
 class RequestService {
     def mongo;
@@ -49,5 +50,14 @@ class RequestService {
         page.items = cursor.toArray()
 
         return page;
+    }
+
+
+    def DBObject findById(String collectionName, String idAsString) {
+
+        def db = mongo.getDB("logs");
+
+        ObjectId objectId = new ObjectId(idAsString)
+        return  db[collectionName].findOne(objectId)
     }
 }
