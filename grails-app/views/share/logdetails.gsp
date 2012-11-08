@@ -15,6 +15,7 @@
 
     <r:require module="bootstrap"/>
     <r:require module="jquery"/>
+    <r:layoutResources />
 </head>
 
 <body>
