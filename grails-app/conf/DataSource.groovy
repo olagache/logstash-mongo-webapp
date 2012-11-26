@@ -5,7 +5,7 @@ environments {
     development {
         grails {
             mongo {
-                host = "rtl-jback2.web.groupertl.net"
+                host = "rtl-jdev1.web.groupertl.net"
                 port = 27120
                 databaseName = "logs"
             }
@@ -15,9 +15,9 @@ environments {
     test {
         grails {
             mongo {
-                host = "localhost"
+                host = "rtl-jdev1.web.groupertl.net"
                 port = 27017
-                databaseName = "logs"
+                databaseName = "logs-integration"
             }
         }
     }
