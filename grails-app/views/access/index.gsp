@@ -26,7 +26,7 @@
         <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
                         params="[application : page?.query?.applicationName, responseCode : page?.query?.responseCode]"
-                        action="index"/>
+                        action="index" max="${page.query.size}"/>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
         <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
                         params="[application : page?.query?.applicationName, responseCode : page?.query?.responseCode]"
-                        action="index"/>
+                        action="index" max="${page.query.size}"/>
         </div>
     </div>
 

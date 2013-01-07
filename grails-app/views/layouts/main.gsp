@@ -43,7 +43,7 @@
                         <ul class="nav">
                             <li><g:link controller="access">Access Log</g:link></li>
                             <li><g:link controller="application">Application Log</g:link></li>
-                            <li><a href="#">Catalina Log</a></li>
+                            <li><g:link controller="catalina">Catalina Log</g:link></li>
                         </ul>
                     </div>
                 </div>

@@ -9,8 +9,7 @@
 <body>
     <form class="form-inline" method="get">
         <fieldset>
-            <g:select name="application" from="${weblog.applications(collection: 'applications')}" value="${page?.query?.applicationName}"/>
-            <g:select name="level" from="${weblog.loglevels()}" value="${page?.query?.logLevel}"/>
+            <g:select name="application" from="${weblog.applications(collection: 'catalina')}" value="${page?.query?.applicationName}"/>
             <input type="hidden" name="max" value="50">
             <input type="hidden" name="offset" value="0">
             <button type="submit" class="btn btn-primary">Go!</button>
@@ -25,8 +24,9 @@
     <div class="row">
         <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
-                        params="[application : page?.query?.applicationName, level : page?.query?.logLevel]"
-                        action="index" max="${page.query.size}"/>
+                        params="[application : page?.query?.applicationName]"
+                        action="index"
+                        max="${page.query.size}"/>
         </div>
     </div>
 
@@ -35,8 +35,6 @@
             <tr>
                 <th>Date</th>
                 <th>Application</th>
-                <th>Level</th>
-                <th>Classname</th>
                 <th>Message</th>
             </tr>
         </thead>
@@ -53,19 +51,14 @@
                         </g:if>
                     </td>
                     <td>
-                        <g:if test="${fields.loglevel}">
-                            <small>${fields.loglevel[0]}</small>
-                        </g:if>
-                    </td>
-                    <td>
-                        <g:if test="${fields.classname}">
-                            <small>${fields.classname[0]}</small>
-                        </g:if>
-                    </td>
-                    <td>
-                        <g:if test="${fields.text}">
-                            <small>${fields.text[0]}. <g:link controller="logDetails" params="[collectionName : page.query.mongoCollection, id : item['_id']]" class="btn btn-info btn-mini pull-right" rel="external">details</g:link>
-                            </small>
+                        <g:if test="${item.get("@message")}">
+                            <g:set var="messageLines" value="${item.get('@message').readLines()}"/>
+                            <g:if test="${messageLines}">
+                                <small>${messageLines[0]}. <g:link controller="logDetails" params="[collectionName : page.query.mongoCollection, id : item['_id']]" class="btn btn-info btn-mini pull-right" rel="external">details</g:link></small>
+                            </g:if>
+                            <g:else>
+                                <small>${item.get('@message')}. <g:link controller="logDetails" params="[collectionName : page.query.mongoCollection, id : item['_id']]" class="btn btn-info btn-mini pull-right" rel="external">details</g:link></small>
+                            </g:else>
                         </g:if>
                     </td>
                 </tr>
@@ -76,7 +69,7 @@
     <div class="row">
         <div class="span12" style="text-align: center">
             <g:paginate total="${page.totalCount}"
-                        params="[application : page?.query?.applicationName, level : page?.query?.logLevel]"
+                        params="[application : page?.query?.applicationName]"
                         action="index" max="${page.query.size}"/>
         </div>
     </div>

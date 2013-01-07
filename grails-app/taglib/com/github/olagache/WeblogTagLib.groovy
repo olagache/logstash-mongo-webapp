@@ -52,6 +52,6 @@ class WeblogTagLib {
             }
         }
 
-        return copyList
+        return copyList.sort()
     }
 }
